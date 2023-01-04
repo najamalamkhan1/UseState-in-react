@@ -1,0 +1,31 @@
+useState in array datatype
+syntex:
+// States Variable
+JavaScript work for useState in array datatype
+  const [studantArray, setStudentArray] = useState([])
+  // Here empty array is used for breaking array with ...studentArray 
+  const [inputData, setInputData] = useState(["Invalid value"])
+  // Helper Functions
+
+  function btnfunc() {
+    setStudentArray([...studantArray, inputData])
+    // ...studentArray keep the old value in array
+  }
+  function inputfunc(e) {
+    setInputData(e.target.value)
+  }
+
+Html Work:
+<div className="container">
+      <ul>
+        {studantArray.map(
+          (item) => {
+            return <li>{item}</li>
+          }
+        )}
+      </ul>
+      <div>
+        <input onChange={inputfunc} type="text" />
+        <button onClick={btnfunc}>Click</button>
+      </div>
+    </div>
